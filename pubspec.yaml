@@ -1,5 +1,5 @@
 name: test_app_arvid
-description: A new Flutter project.
+description: Flutter App Test
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -35,6 +35,7 @@ dependencies:
 
   google_fonts: ^3.0.1
 
+  path_provider:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
@@ -69,6 +70,30 @@ flutter:
     - images/pic2.png
     - images/pic3.png
     - images/pic4.png
+    - images/pic5.png
+    - images/pic6.png
+    - images/pic7.png
+    - images/pic8.png
+    - images/pic9.png
+    - images/pic10.png
+    - images/pic11.png
+    - images/pic12.png
+    - images/pic13.png
+    - images/pic14.png
+    - images/pic15.png
+    - images/pic16.png
+    - images/pic17.png
+    - images/pic18.png
+    - images/pic19.png
+    - images/pic20.png
+    - images/pic21.png
+    - images/pic22.png
+    - images/pic23.png
+    - images/pic24.png
+    - images/pic25.png
+    - images/pic26.png
+    - images/pic27.png
+    - images/pic28.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

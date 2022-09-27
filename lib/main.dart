@@ -1,8 +1,10 @@
 import 'dart:math';
-
+import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:english_words/english_words.dart';
+import 'dart:io';
+import 'dart:async';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +14,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -42,27 +44,30 @@ class _RandomWordsState extends State<RandomWords> {
   final _biggerFont = const TextStyle(fontSize: 18);
   final _saved = <String>{};
 
-
+  
   void _pushSaved() {
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (context) {
           final tiles = _saved.map(
-            (pair) {
-              return Container(
-                decoration: BoxDecoration(
-                  border: Border.all(width: 10, color: Colors.black38),
-                  borderRadius: const BorderRadius.all(Radius.circular(8))
-                ),
-                margin: const EdgeInsets.all(4),
-                child: Image.asset(pair)
-              );
-              // return ListTile(
-              //   title: Text( // Replace with image
-              //     pair,
-              //     style: _biggerFont,
-              //   ),
+            (imgurl) {
+              // return Row(
+              //   children: [
+              //     Expanded(
+              //       child: Container(
+              //         decoration: BoxDecoration(
+              //           border: Border.all(width: 10, color: Colors.black38),
+              //           borderRadius: const BorderRadius.all(Radius.circular(8))
+              //         ),
+              //         margin: const EdgeInsets.all(4),
+              //         child: Image.asset(imgurl)
+              //       )
+              //     )
+              //   ]
               // );
+              return ListTile(
+                title: Image.asset(imgurl)
+              );
             },
           );
           final divided = tiles.isNotEmpty
@@ -78,14 +83,6 @@ class _RandomWordsState extends State<RandomWords> {
               title: const Text('Liked Images'),
             ),
             body: ListView(children: divided),
-            // body: Container(
-            //   decoration: const BoxDecoration(
-            //     color: Colors.black26
-            //   ),
-            //   child: Column(
-            //     children: divided,   
-            //   ),
-            // )
           );
         },
       ),
@@ -201,8 +198,9 @@ class _RandomWordsState extends State<RandomWords> {
     padding: const EdgeInsets.all(4),
     mainAxisSpacing: 4,
     crossAxisSpacing: 4,
-    children: _buildGridTileList(4),
+    children: _buildGridTileList(20),
   );
+
   List<Container> _buildGridTileList(int count) {
     return List.generate(
       count, (i) {
